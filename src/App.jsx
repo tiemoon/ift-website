@@ -20,7 +20,7 @@ export default function UltraMinimalIFT() {
 
           <nav className="hidden md:flex items-center gap-8 text-sm text-black/70">
             <a href="#about" className="hover:text-black">About</a>
-            <a href="#academics" className="hover:text-black">Academics</a>
+            <a href="#skilldevelopment" className="hover:text-black">Skill development</a>
             <a href="#research" className="hover:text-black">Research</a>
             <a href="#contact" className="hover:text-black">Contact</a>
           </nav>
@@ -36,7 +36,7 @@ export default function UltraMinimalIFT() {
         {menuOpen && (
           <div className="md:hidden px-6 pb-6 space-y-3 text-sm">
             <a href="#about" className="block">About</a>
-            <a href="#academics" className="block">Academics</a>
+            <a href="#skilldevelopment" className="block">Skill development</a>
             <a href="#research" className="block">Research</a>
             <a href="#contact" className="block">Contact</a>
           </div>
@@ -93,9 +93,9 @@ export default function UltraMinimalIFT() {
           />
         </section>
 
-        {/* ACADEMICS */}
-        <section id="academics" className="max-w-6xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold">Academics</h2>
+        {/* Skill development */}
+        <section id="skilldevelopment" className="max-w-6xl mx-auto px-6 py-24">
+          <h2 className="text-3xl font-semibold">Skill development</h2>
 
           <div className="mt-12 grid md:grid-cols-2 gap-12 text-lg">
             <div>
@@ -140,11 +140,11 @@ export default function UltraMinimalIFT() {
           <div className="mt-10 grid md:grid-cols-3 gap-10 text-black/70">
             <div>
               <p className="font-medium text-black">Address</p>
-              <p className="mt-2">Kaliakair, Gazipur, Bangladesh</p>
+              <p className="mt-2">Purana Paltan, Dhaka, Bangladesh</p>
             </div>
             <div>
               <p className="font-medium text-black">Email</p>
-              <p className="mt-2">info@ift.edu.bd</p>
+              <p className="mt-2">info@iftbd.com</p>
             </div>
             <div>
               <p className="font-medium text-black">Phone</p>
