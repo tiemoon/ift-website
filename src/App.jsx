@@ -99,20 +99,20 @@ export default function UltraMinimalIFT() {
 
           <div className="mt-12 grid md:grid-cols-2 gap-12 text-lg">
             <div>
-              <h3 className="font-medium">Software & AI</h3>
-              <p className="mt-2 text-black/60">Advanced computing, data systems, and intelligent software.</p>
+              <h3 className="font-medium">Software & AI/ML</h3>
+              <p className="mt-2 text-black/60">Advanced training on mobile & web app development, data modeling, and AL/ML tools and frameworks.</p>
             </div>
             <div>
               <h3 className="font-medium">Cyber Security</h3>
-              <p className="mt-2 text-black/60">Secure systems, digital trust, and resilience.</p>
+              <p className="mt-2 text-black/60">Workshop & training on Secure systems, digital trust, and resilience.</p>
             </div>
             <div>
               <h3 className="font-medium">IoT & Robotics</h3>
-              <p className="mt-2 text-black/60">Connected devices and cyber-physical systems.</p>
+              <p className="mt-2 text-black/60">World class training on IoT and cyber-physical systems.</p>
             </div>
             <div>
               <h3 className="font-medium">Digital Transformation</h3>
-              <p className="mt-2 text-black/60">Technology-driven change across industries.</p>
+              <p className="mt-2 text-black/60">Workshop on how to adopt digital Technology-driven change across industries.</p>
             </div>
           </div>
         </section>
