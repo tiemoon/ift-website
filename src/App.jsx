@@ -65,7 +65,7 @@ export default function UltraMinimalIFT() {
             </motion.h1>
 
             <p className="mt-6 max-w-xl text-white/80">
-              Clean, modern, and globally aligned academic environment focused on innovation, research, and future-ready talent.
+              Clean, modern, and globally aligned training environment focused on innovation, research, and future-ready talent.
             </p>
 
             <div className="mt-6">
@@ -148,7 +148,7 @@ export default function UltraMinimalIFT() {
             </div>
             <div>
               <p className="font-medium text-black">Phone</p>
-              <p className="mt-2">+880 0000 000000</p>
+              <p className="mt-2">+8801X97682625</p>
             </div>
           </div>
         </section>
