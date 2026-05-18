@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   ArrowLeft,
@@ -39,22 +39,52 @@ function IFTLogo({ size = 28, className = "" }) {
 }
 
 // ── Scroll-driven zoom image ────────────────────────────────────────────────────
-// Replicates the MIT.edu effect: image zooms in as it enters the viewport and
-// zooms out as it exits, driven continuously by scroll position.
-function ScrollZoomImage({ src, alt, className, offsets, inputRange, outputScale }) {
-  const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: offsets ?? ["start end", "end start"],
-  });
-  const scale = useTransform(
-    scrollYProgress,
-    inputRange ?? [0, 0.5, 1],
-    outputScale ?? [1.06, 1, 1.06]
-  );
+// MIT.edu style: direct scroll listener → CSS transform. Zooms in as the image
+// enters the viewport, zooms out at centre, zooms back in as it leaves.
+// For the hero (hero=true) it starts normal and zooms in as it scrolls away.
+function ScrollZoomImage({ src, alt, className, hero = false }) {
+  const wrapRef = React.useRef(null);
+  const imgRef  = React.useRef(null);
+
+  React.useEffect(() => {
+    const wrap = wrapRef.current;
+    const img  = imgRef.current;
+    if (!wrap || !img) return;
+
+    const update = () => {
+      const rect = wrap.getBoundingClientRect();
+      const vh   = window.innerHeight;
+      let scale;
+
+      if (hero) {
+        // Zooms gently from 1 → 1.1 as the hero scrolls off-screen
+        const progress = Math.max(0, Math.min(1, -rect.top / rect.height));
+        scale = 1 + 0.1 * progress;
+      } else {
+        // Section images: 1.1 → 1 → 1.1 as they cross the viewport
+        const centre      = rect.top + rect.height / 2;
+        const maxDist     = vh / 2 + rect.height / 2;
+        const distRatio   = Math.min(1, Math.abs(centre - vh / 2) / maxDist);
+        scale = 1 + 0.1 * distRatio;
+      }
+
+      img.style.transform = `scale(${scale.toFixed(4)})`;
+    };
+
+    window.addEventListener("scroll", update, { passive: true });
+    update(); // apply on mount
+    return () => window.removeEventListener("scroll", update);
+  }, [hero]);
+
   return (
-    <div ref={ref} className="overflow-hidden">
-      <motion.img src={src} alt={alt} className={className} style={{ scale }} />
+    <div ref={wrapRef} className="overflow-hidden">
+      <img
+        ref={imgRef}
+        src={src}
+        alt={alt}
+        className={className}
+        style={{ transformOrigin: "center center", willChange: "transform" }}
+      />
     </div>
   );
 }
@@ -599,9 +629,7 @@ export default function UltraMinimalIFT() {
             src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80"
             alt="IFT campus"
             className="w-full h-[80vh] object-cover"
-            offsets={["start start", "end start"]}
-            inputRange={[0, 1]}
-            outputScale={[1, 1.08]}
+            hero
           />
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 text-white">
