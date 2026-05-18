@@ -529,7 +529,7 @@ export default function UltraMinimalIFT() {
   const handleBack = () => {
     setSelectedCourse(null);
     setTimeout(() => {
-      document.getElementById("skilldevelopment")?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("courses")?.scrollIntoView({ behavior: "smooth" });
     }, 50);
   };
 
@@ -549,7 +549,7 @@ export default function UltraMinimalIFT() {
 
           <nav className="hidden md:flex items-center gap-8 text-sm text-black/70">
             <a href="#about" className="hover:text-black">About</a>
-            <a href="#skilldevelopment" className="hover:text-black">Skill development</a>
+            <a href="#courses" className="hover:text-black">Courses</a>
             <a href="#workshops" className="hover:text-black">Workshops</a>
             <a href="#research" className="hover:text-black">Research</a>
             <a href="#contact" className="hover:text-black">Contact</a>
@@ -563,7 +563,7 @@ export default function UltraMinimalIFT() {
         {menuOpen && (
           <div className="md:hidden px-6 pb-6 space-y-3 text-sm">
             <a href="#about" className="block" onClick={() => setMenuOpen(false)}>About</a>
-            <a href="#skilldevelopment" className="block" onClick={() => setMenuOpen(false)}>Skill development</a>
+            <a href="#courses" className="block" onClick={() => setMenuOpen(false)}>Courses</a>
             <a href="#workshops" className="block" onClick={() => setMenuOpen(false)}>Workshops</a>
             <a href="#research" className="block" onClick={() => setMenuOpen(false)}>Research</a>
             <a href="#contact" className="block" onClick={() => setMenuOpen(false)}>Contact</a>
@@ -593,12 +593,18 @@ export default function UltraMinimalIFT() {
             <p className="mt-6 max-w-xl text-white/80">
               Clean, modern, and globally aligned training environment focused on innovation, research, and future-ready talent.
             </p>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="#skilldevelopment"
+                href="#courses"
                 className="bg-white text-black px-6 py-3 rounded-full text-sm font-medium inline-flex items-center hover:bg-white/90 transition-colors"
               >
-                Our Programs <ArrowRight className="ml-2 h-4 w-4" />
+                Courses <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+              <a
+                href="#workshops"
+                className="bg-white/15 text-white border border-white/30 px-6 py-3 rounded-full text-sm font-medium inline-flex items-center hover:bg-white/25 transition-colors backdrop-blur-sm"
+              >
+                Workshops <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </div>
           </div>
@@ -623,9 +629,9 @@ export default function UltraMinimalIFT() {
           />
         </section>
 
-        {/* SKILL DEVELOPMENT */}
-        <section id="skilldevelopment" className="max-w-6xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold">Skill development</h2>
+        {/* COURSES */}
+        <section id="courses" className="max-w-6xl mx-auto px-6 py-24">
+          <h2 className="text-3xl font-semibold">Courses</h2>
           <p className="mt-4 text-lg text-black/60 max-w-2xl leading-8">
             Industry-aligned programs designed to build deep expertise in the technologies shaping our world.
           </p>
