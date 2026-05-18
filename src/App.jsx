@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   ArrowLeft,
@@ -35,6 +35,27 @@ function IFTLogo({ size = 28, className = "" }) {
       <path d="M20 2L38 20L20 38L2 20Z" stroke="currentColor" strokeWidth="2.5" />
       <line x1="7.5" y1="20" x2="32.5" y2="20" stroke="currentColor" strokeWidth="2" />
     </svg>
+  );
+}
+
+// ── Scroll-driven zoom image ────────────────────────────────────────────────────
+// Replicates the MIT.edu effect: image zooms in as it enters the viewport and
+// zooms out as it exits, driven continuously by scroll position.
+function ScrollZoomImage({ src, alt, className, offsets, inputRange, outputScale }) {
+  const ref = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: offsets ?? ["start end", "end start"],
+  });
+  const scale = useTransform(
+    scrollYProgress,
+    inputRange ?? [0, 0.5, 1],
+    outputScale ?? [1.06, 1, 1.06]
+  );
+  return (
+    <div ref={ref} className="overflow-hidden">
+      <motion.img src={src} alt={alt} className={className} style={{ scale }} />
+    </div>
   );
 }
 
@@ -573,14 +594,14 @@ export default function UltraMinimalIFT() {
 
       <main className="pt-24">
         {/* HERO */}
-        <section className="relative overflow-hidden">
-          <motion.img
+        <section className="relative">
+          <ScrollZoomImage
             src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80"
-            className="w-full h-[80vh] object-cover"
             alt="IFT campus"
-            initial={{ scale: 1.08 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="w-full h-[80vh] object-cover"
+            offsets={["start start", "end start"]}
+            inputRange={[0, 1]}
+            outputScale={[1, 1.08]}
           />
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 text-white">
@@ -624,15 +645,11 @@ export default function UltraMinimalIFT() {
         </section>
 
         {/* FULL WIDTH IMAGE */}
-        <section className="overflow-hidden">
-          <motion.img
+        <section>
+          <ScrollZoomImage
             src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"
-            className="w-full h-[70vh] object-cover"
             alt="Technology workspace"
-            initial={{ scale: 1.08 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="w-full h-[70vh] object-cover"
           />
         </section>
 
@@ -650,15 +667,11 @@ export default function UltraMinimalIFT() {
         </section>
 
         {/* FULL WIDTH IMAGE */}
-        <section className="overflow-hidden">
-          <motion.img
+        <section>
+          <ScrollZoomImage
             src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1600&q=80"
-            className="w-full h-[70vh] object-cover"
             alt="Learning environment"
-            initial={{ scale: 1.08 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="w-full h-[70vh] object-cover"
           />
         </section>
 
