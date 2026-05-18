@@ -573,11 +573,14 @@ export default function UltraMinimalIFT() {
 
       <main className="pt-24">
         {/* HERO */}
-        <section className="relative">
-          <img
+        <section className="relative overflow-hidden">
+          <motion.img
             src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80"
             className="w-full h-[80vh] object-cover"
             alt="IFT campus"
+            initial={{ scale: 1.08 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           />
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 text-white">
@@ -621,11 +624,15 @@ export default function UltraMinimalIFT() {
         </section>
 
         {/* FULL WIDTH IMAGE */}
-        <section>
-          <img
+        <section className="overflow-hidden">
+          <motion.img
             src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"
             className="w-full h-[70vh] object-cover"
             alt="Technology workspace"
+            initial={{ scale: 1.08 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }}
           />
         </section>
 
@@ -643,11 +650,15 @@ export default function UltraMinimalIFT() {
         </section>
 
         {/* FULL WIDTH IMAGE */}
-        <section>
-          <img
+        <section className="overflow-hidden">
+          <motion.img
             src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1600&q=80"
             className="w-full h-[70vh] object-cover"
             alt="Learning environment"
+            initial={{ scale: 1.08 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }}
           />
         </section>
 
