@@ -616,8 +616,7 @@ export default function UltraMinimalIFT() {
           <h2 className="text-3xl font-semibold">About</h2>
           <p className="mt-6 text-lg leading-8 text-black/70">
             The Institute of Frontier Technology is positioned as a next-generation academic institution focused on
-            advanced digital capability, interdisciplinary learning, and applied research. The design intentionally
-            removes clutter and communicates clarity, confidence, and global ambition.
+            advanced digital capability, interdisciplinary learning, and applied research.
           </p>
         </section>
 
@@ -670,8 +669,7 @@ export default function UltraMinimalIFT() {
           <h2 className="text-3xl font-semibold">Research</h2>
           <p className="mt-6 text-lg leading-8 text-black/70">
             Research is presented as a core institutional pillar — focused on artificial intelligence, cyber systems,
-            connected infrastructure, and digital innovation. The minimal design gives research more authority and
-            clarity.
+            connected infrastructure, and digital innovation.
           </p>
         </section>
 
