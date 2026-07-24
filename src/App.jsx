@@ -611,15 +611,6 @@ export default function UltraMinimalIFT() {
           </div>
         </section>
 
-        {/* ABOUT */}
-        <section id="about" className="max-w-5xl mx-auto px-6 py-24">
-          <h2 className="text-3xl font-semibold">About</h2>
-          <p className="mt-6 text-lg leading-8 text-black/70">
-            The Institute of Frontier Technology is positioned as a next-generation academic institution focused on
-            advanced digital capability, interdisciplinary learning, and applied research.
-          </p>
-        </section>
-
         {/* FULL WIDTH IMAGE */}
         <section className="overflow-hidden group">
           <img
@@ -670,6 +661,15 @@ export default function UltraMinimalIFT() {
           <p className="mt-6 text-lg leading-8 text-black/70">
             Research is presented as a core institutional pillar — focused on artificial intelligence, cyber systems,
             connected infrastructure, and digital innovation.
+          </p>
+        </section>
+
+        {/* ABOUT */}
+        <section id="about" className="max-w-5xl mx-auto px-6 py-24 border-t border-black/10">
+          <h2 className="text-3xl font-semibold">About</h2>
+          <p className="mt-6 text-lg leading-8 text-black/70">
+            The Institute of Frontier Technology is positioned as a next-generation academic institution focused on
+            advanced digital capability, interdisciplinary learning, and applied research.
           </p>
         </section>
 
