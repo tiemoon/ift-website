@@ -43,6 +43,7 @@ function IFTLogo({ size = 28, className = "" }) {
 const courses = [
   {
     id: "agentic-ai",
+    featured: true,
     icon: Bot,
     title: "Agentic AI Software Development",
     short: "Build autonomous AI agents that plan, reason, and act using modern LLM frameworks and orchestration tools.",
@@ -95,6 +96,7 @@ const courses = [
   },
   {
     id: "cyber-security",
+    featured: true,
     icon: ShieldCheck,
     title: "Cyber Security",
     short: "Comprehensive training on securing digital systems, threat detection, ethical hacking, and incident response.",
@@ -318,11 +320,19 @@ function CourseCard({ course, onClick }) {
       whileHover={{ y: -4 }}
       transition={{ duration: 0.18 }}
       onClick={() => onClick(course)}
-      className="cursor-pointer group border border-black/10 rounded-2xl p-6 hover:border-black/25 hover:shadow-lg transition-shadow duration-200"
+      className={`cursor-pointer group rounded-2xl p-6 transition-shadow duration-200 ${
+        course.featured
+          ? "border-2 border-black bg-black/[0.03] shadow-md hover:shadow-lg"
+          : "border border-black/10 hover:border-black/25 hover:shadow-lg"
+      }`}
     >
       <div className="flex items-start justify-between mb-4">
-        <div className="w-10 h-10 rounded-xl bg-black/5 flex items-center justify-center">
-          <Icon className="h-5 w-5 text-black/65" />
+        <div
+          className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+            course.featured ? "bg-black" : "bg-black/5"
+          }`}
+        >
+          <Icon className={`h-5 w-5 ${course.featured ? "text-white" : "text-black/65"}`} />
         </div>
         <span className="text-xs text-black/45 border border-black/10 rounded-full px-3 py-1 shrink-0 ml-2">
           {course.duration}
